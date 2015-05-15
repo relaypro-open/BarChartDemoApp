@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+/*
+ * Copyright (C) 2015 Republic Wireless
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:chart="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+        
+    <com.rw.barcharttest.usagechart.ChartDataUsageView
+	    android:id="@+id/chart"
+	    android:layout_width="match_parent"
+	    android:layout_height="@dimen/data_usage_chart_height"
+	    android:layout_marginStart="-16dip"
+	    android:layout_marginEnd="-16dip"
+	    android:layout_marginBottom="-32dip"
+	    android:paddingStart="35dip"
+	    android:paddingEnd="35dip"
+	    android:paddingTop="16dip"
+	    android:paddingBottom="48dip"
+	    chart:optimalWidth="@dimen/data_usage_chart_optimalWidth"
+	    chart:optimalWidthWeight="0.4">
+	
+	    <com.rw.barcharttest.usagechart.ChartGridView
+	        android:id="@+id/grid"
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent"
+	        android:layout_gravity="start|bottom"
+	        chart:drawBorder="false"
+	        chart:drawVerticalGridLines="false"
+	        chart:secondaryDrawable="@drawable/data_grid_secondary"/>
+
+	    <com.rw.barcharttest.usagechart.ChartBarGraphView
+            android:id="@+id/bar_graph"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start|bottom"
+            chart:selectedColor="@color/selected_bar"
+            chart:defaultColor="@color/default_bar" />
+
+	    <com.rw.barcharttest.usagechart.ChartSweepView
+	        android:id="@+id/sweep_left"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        chart:sweepDrawable="@drawable/data_sweep_left"
+	        chart:followAxis="horizontal"
+	        chart:neighborMargin="5dip"
+	        chart:labelColor="#FF000000" />
+	
+	    <com.rw.barcharttest.usagechart.ChartSweepView
+	        android:id="@+id/sweep_right"
+	        android:layout_width="wrap_content"
+	        android:layout_height="match_parent"
+	        chart:sweepDrawable="@drawable/data_sweep_right"
+	        chart:followAxis="horizontal"
+	        chart:neighborMargin="5dip" 
+	        chart:labelColor="#FF000000" />
+	
+	    <com.rw.barcharttest.usagechart.AverageSweepView
+            android:id="@+id/sweep_average"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            chart:sweepDrawable="@drawable/data_sweep_average"
+            chart:followAxis="vertical" />
+
+	</com.rw.barcharttest.usagechart.ChartDataUsageView>
+	
+    <TextView 
+        android:id="@+id/summary_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="21dip"
+        android:paddingEnd="21dip"
+        android:paddingTop="16dip"
+        android:paddingBottom="16dip"
+        android:textColor="#FFFFFFFF"
+        />
+        
+</LinearLayout>
